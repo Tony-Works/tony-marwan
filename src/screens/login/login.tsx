@@ -22,14 +22,14 @@ const Login = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-
+    navigate('/dashboard');
     try {
       const res = await axios.post(
         'http://apps.webhop.biz:2087/api/Serviceauth/authentication',
 
         { username: data.get('username'), password: data.get('password') },
       );
-      navigate('/login');
+      navigate('/dashboard');
       console.log('::::::::::::', res, '::::::::::::');
     } catch (err) {
       console.log(err);
